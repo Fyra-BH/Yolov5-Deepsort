@@ -1,9 +1,17 @@
-# 本文禁止转载!
+# 环境配置:
 
+```
+conda conda create -n deepsort python=3.9
+conda activate deepsort
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+```
+
+# 本文禁止转载!
 
 本文地址：[https://blog.csdn.net/weixin_44936889/article/details/112002152](https://blog.csdn.net/weixin_44936889/article/details/112002152)
 
 # 项目简介：
+
 使用YOLOv5+Deepsort实现车辆行人追踪和计数，代码封装成一个Detector类，更容易嵌入到自己的项目中。
 
 代码地址（欢迎star）：
@@ -12,6 +20,7 @@
 
 最终效果：
 ![在这里插入图片描述](https://github.com/Sharpiless/Yolov5-Deepsort/blob/main/image.png)
+
 # YOLOv5检测器：
 
 ```python
@@ -94,10 +103,12 @@ deepsort = DeepSort(cfg.DEEPSORT.REID_CKPT,
 # 运行demo：
 
 ```bash
-python demo.py
+python demo.py # 调用摄像头
+python demo.py [video_file_path] # 读取视频文件
 ```
 
 # 训练自己的模型：
+
 参考我的另一篇博客：
 
 [【小白CV】手把手教你用YOLOv5训练自己的数据集（从Windows环境配置到模型部署）](https://blog.csdn.net/weixin_44936889/article/details/110661862)
@@ -135,5 +146,3 @@ result = det.feedCap(im)
 > Github：[https://github.com/Sharpiless](https://github.com/Sharpiless)
 
 遵循 GNU General Public License v3.0 协议，标明目标检测部分来源：https://github.com/ultralytics/yolov5/
-
-
