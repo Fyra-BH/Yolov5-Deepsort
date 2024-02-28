@@ -1,11 +1,3 @@
-# 环境配置:
-
-```
-conda conda create -n deepsort python=3.9
-conda activate deepsort
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
-```
-
 # 本文禁止转载!
 
 本文地址：[https://blog.csdn.net/weixin_44936889/article/details/112002152](https://blog.csdn.net/weixin_44936889/article/details/112002152)
@@ -99,6 +91,14 @@ deepsort = DeepSort(cfg.DEEPSORT.REID_CKPT,
 ```
 
 调用 self.update 方法更新追踪结果
+
+# 环境配置
+
+```
+conda conda create -n deepsort python=3.9
+conda activate deepsort
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+```
 
 # 运行demo：
 
