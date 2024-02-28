@@ -1,13 +1,14 @@
 from AIDetector_pytorch import Detector
 import imutils
 import cv2
+import os
 
-def main():
+def main(video_in):
 
     name = 'demo'
 
     det = Detector()
-    cap = cv2.VideoCapture('E:/视频/行人监控/test01.mp4')
+    cap = cv2.VideoCapture(video_in)
     fps = int(cap.get(5))
     print('fps:', fps)
     t = int(1000/fps)
@@ -24,11 +25,13 @@ def main():
         result = det.feedCap(im)
         result = result['frame']
         result = imutils.resize(result, height=500)
+        if not os.path.exists('runs'):
+            os.mkdir('runs')
         if videoWriter is None:
             fourcc = cv2.VideoWriter_fourcc(
                 'm', 'p', '4', 'v')  # opencv3.0
             videoWriter = cv2.VideoWriter(
-                'result.mp4', fourcc, fps, (result.shape[1], result.shape[0]))
+                'runs/result.mp4', fourcc, fps, (result.shape[1], result.shape[0]))
 
         videoWriter.write(result)
         cv2.imshow(name, result)
@@ -46,5 +49,9 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-    
-    main()
+    import sys
+    try:
+        main(sys.argv[1] if len(sys.argv) > 1 else 0)
+    except Exception as e:
+        print(e)
+        print('Usage: python demo.py [video_path]')
