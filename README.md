@@ -95,7 +95,7 @@ deepsort = DeepSort(cfg.DEEPSORT.REID_CKPT,
 # 环境配置
 
 ```
-conda conda create -n deepsort python=3.9
+conda create -n deepsort python=3.9
 conda activate deepsort
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 ```
